@@ -4,29 +4,13 @@ const Course = ({ course }) => (<div>
   <Total parts={course.parts} />
 </div>)
 
-const Header = (props) => {
-  return (
-    <h1>{props.course}</h1>
-  )
-}
+const Header = ({ course }) => <h1>{course}</h1>;
 
-const Part = (props) => {
-  const part = props.part;
-  return (
-    <p> {part.name} {part.exercises} </p>
-  )
-}
+const Part = ({ part }) => <p> {part.name} {part.exercises} </p>;
 
-const Content = ({ parts }) => {
-  return parts.map(part => <Part part={part} key={part.id} />)
-}
+const Content = ({ parts }) => parts.map(part => <Part part={part} key={part.id} />);
 
-const Total = (props) => {
-  return (
-    <p>Number of exercises {props.parts.reduce((sum, part) => sum + part.exercises, 0)}</p>
-  )
-}
-
+const Total = (props) => <p>Number of exercises {props.parts.reduce((sum, part) => sum + part.exercises, 0)}</p>;
 
 const App = () => {
   const course = {
@@ -51,7 +35,7 @@ const App = () => {
     ]
   }
 
-  return <Course course={course} />
+  return <Course course={course} />;
 }
 
 export default App
