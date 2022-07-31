@@ -1,5 +1,14 @@
 import { useState } from 'react'
 
+const Anecdote = ({ text, points }) => {
+  return (
+    <>
+      <blockquote>{text}</blockquote>
+      <p>Votes: {points}</p>
+    </>
+  )
+}
+
 const App = () => {
   const anecdotes = [
     'If it hurts, do it more often.',
@@ -31,13 +40,12 @@ const App = () => {
   return (
     <div>
       <h1>Anecdote of the day</h1>
-      <p>{anecdotes[selected]}</p>
-      <p>Votes: {points[selected]}</p>
+      <Anecdote text={anecdotes[selected]} points={points[selected]}/>
       <button onClick={selectRandom}>Next anecdote</button>
       <button onClick={vote}>Vote</button>
+
       <h2>Anecdote with most votes</h2>
-      <p>{anecdotes[mostVoted()]}</p>
-      <p>Votes: {points[mostVoted()]}</p>
+      <Anecdote text={anecdotes[mostVoted()]} points={points[mostVoted()]}/>
     </div>
   )
 }
