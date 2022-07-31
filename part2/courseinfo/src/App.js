@@ -1,3 +1,9 @@
+const Course = ({ course }) => (<div>
+  <Header course={course.name} />
+  <Content parts={course.parts} />
+  <Total parts={course.parts} />
+</div>)
+
 const Header = (props) => {
   return (
     <h1>{props.course}</h1>
@@ -51,13 +57,7 @@ const App = () => {
     ]
   }
 
-  return (
-    <div>
-      <Header course={course.name} />
-      <Content parts={course.parts} />
-      <Total parts={course.parts} />
-    </div>
-  )
+  return <Course course={course} />
 }
 
 export default App
