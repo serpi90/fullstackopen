@@ -1,5 +1,9 @@
 import { useState } from 'react'
 
+const Button = ({ text, click }) => {
+  return <button onClick={click}>{text}</button>
+}
+
 const Statistics = ({ good, neutral, bad }) => {
   const total = () => good + neutral + bad;
   const average = () => ((good - bad) / total()).toFixed(2);
@@ -39,9 +43,9 @@ const App = () => {
   return (
     <div>
       <h1>Give Feedback</h1>
-      <button onClick={increaseGood}>Good</button>
-      <button onClick={increaseNeutral}>Neutral</button>
-      <button onClick={increaseBad}>Bad</button>
+      <Button click={increaseGood} text="Good" />
+      <Button click={increaseNeutral} text="Neutral" />
+      <Button click={increaseBad} text="Bad" />
       <section>
         <h2>Statistics</h2>
         <Statistics good={good} neutral={neutral} bad={bad} />
