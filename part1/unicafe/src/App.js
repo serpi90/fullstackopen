@@ -5,6 +5,9 @@ const Statistics = ({ good, neutral, bad }) => {
   const average = () => ((good - bad) / total()).toFixed(2);
   const positive = () => ((good) / total() * 100).toFixed(0) + '%';
 
+  if (!total()) {
+    return (<p>No feedback yet</p>)
+  }
   return (
     <dl>
       <dt>Good</dt>
