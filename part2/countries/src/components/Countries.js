@@ -1,3 +1,7 @@
+const CountryItem = ({ name }) => {
+  return <p>{name}</p>;
+}
+
 const Country = ({ country }) => {
   return <>
     <h2>{country.name.common}</h2>
@@ -20,7 +24,7 @@ const Countries = ({ countries, search }) => {
   } else if (filtered.length === 1) {
     return <Country country={filtered[0]} />
   }
-  return filtered.map(p => <p key={p.cca3}>{p.name.common}</p>);
+  return filtered.map(c => <CountryItem key={c.cca3} name={c.name.common} />);
 };
 
 export default Countries
