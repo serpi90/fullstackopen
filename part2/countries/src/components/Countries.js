@@ -1,5 +1,5 @@
-const CountryItem = ({ name }) => {
-  return <p>{name}</p>;
+const CountryItem = ({ name, setSearch }) => {
+  return <p> {name} <button onClick={() => setSearch(name)}> show </button> </p>;
 }
 
 const Country = ({ country }) => {
@@ -17,14 +17,14 @@ const Country = ({ country }) => {
   </>;
 }
 
-const Countries = ({ countries, search }) => {
+const Countries = ({ countries, search, setSearch }) => {
   const filtered = countries.filter(p => p.name.common.toLowerCase().includes(search.toLowerCase()));
   if (filtered.length > 10) {
     return <p>Too many matches, specify another filter</p>
   } else if (filtered.length === 1) {
     return <Country country={filtered[0]} />
   }
-  return filtered.map(c => <CountryItem key={c.cca3} name={c.name.common} />);
+  return filtered.map(c => <CountryItem key={c.cca3} name={c.name.common} setSearch={setSearch} />);
 };
 
 export default Countries
