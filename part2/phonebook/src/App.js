@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Filter from './components/Filter'
 
 const App = () => {
   const [persons, setPersons] = useState([
@@ -29,11 +30,7 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
-      <div>
-        <div>
-          filter shown with <input value={search} onChange={event => setSearch(event.target.value)} />
-        </div>
-      </div>
+      <Filter search={search} setSearch={setSearch} />
       <h2>add a new</h2>
       <form>
         <div>
