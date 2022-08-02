@@ -1,31 +1,10 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
-
-const apiKey = process.env.REACT_APP_OPENWEATHERMAP_API_KEY;
+import Weather from './Weather';
 
 const CountryItem = ({ name, setSearch }) => {
   return <p> {name} <button onClick={() => setSearch(name)}> show </button> </p>;
 }
 
 const Country = ({ country }) => {
-  const [weather, setWeather] = useState({});
-  useEffect(() => {
-    axios
-      .get('https://api.openweathermap.org/data/2.5/weather', {
-        params: {
-          appid: apiKey,
-          q: country.capital[0],
-          units: 'metric',
-        }
-      })
-      .then(response => setWeather({
-        temperature: response.data.main.temp,
-        icon: response.data.weather[0].icon,
-        description: response.data.weather[0].description,
-        wind: response.data.wind.speed
-      }))
-  }, [country.capital])
-
   return <>
     <h2>{country.name.common}</h2>
     <p>Capital: {country.capital.join(', ')}</p>
@@ -37,10 +16,7 @@ const Country = ({ country }) => {
         .map(([key, lang]) => <li key={key}>{lang}</li>)}
     </ul>
     <img src={country.flags.png} alt="flag" />
-    <h3>Weather in {country.capital[0]}</h3>
-    <p>Temperature: {weather.temperature} Celsius</p>
-    {weather.icon ? <img src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`} alt={weather.description} /> : []}
-    <p>Wind: {weather.wind} m/s</p>
+    <Weather city={country.capital[0]} />
   </>;
 }
 
