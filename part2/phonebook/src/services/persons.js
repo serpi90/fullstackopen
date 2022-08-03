@@ -5,5 +5,7 @@ const getAll = () => axios.get(baseURL).then(({ data: persons }) => persons);
 
 const create = newPerson => axios.post(baseURL, newPerson).then(({ data: person }) => person);
 
-const personService = { getAll, create };
+const remove = person => axios.delete(`${baseURL}/${person.id}`);
+
+const personService = { getAll, create, remove };
 export default personService;
