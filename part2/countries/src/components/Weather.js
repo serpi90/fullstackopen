@@ -12,8 +12,8 @@ const Weather = ({ city }) => {
         temperature: data.main.temp,
         icon: data.weather[0].icon,
         description: data.weather[0].description,
-        wind: data.wind.speed
-      }))
+        wind: data.wind.speed,
+      }));
   }, [city]);
 
   if (!weather.temperature) return <></>;

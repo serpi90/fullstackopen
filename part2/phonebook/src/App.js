@@ -1,17 +1,17 @@
-import { useEffect, useState } from 'react'
-import Filter from './components/Filter'
-import PersonForm from './components/PersonForm'
-import Persons from './components/Persons'
+import { useEffect, useState } from 'react';
+import Filter from './components/Filter';
+import PersonForm from './components/PersonForm';
+import Persons from './components/Persons';
 import personService from './services/persons';
 
 const App = () => {
-  const [persons, setPersons] = useState([])
-  const [search, setSearch] = useState('')
+  const [persons, setPersons] = useState([]);
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     personService
       .getAll()
-      .then(initialPersons => setPersons(initialPersons))
+      .then(initialPersons => setPersons(initialPersons));
   }, []);
 
   return (
@@ -23,7 +23,7 @@ const App = () => {
       <h3>Numbers</h3>
       <Persons persons={persons} search={search} />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

@@ -16,7 +16,7 @@ const PersonForm = ({ persons, setPersons }) => {
           setPersons(persons.concat(person));
           setNewName('');
           setNewPhone('');
-        })
+        });
     }
   };
 
@@ -35,4 +35,4 @@ const PersonForm = ({ persons, setPersons }) => {
   );
 };
 
-export default PersonForm
+export default PersonForm;
