@@ -10,7 +10,7 @@ const PersonForm = ({ persons, setPersons, setNotification }) => {
       .create(person)
       .then(newPerson => {
         setPersons(persons.concat(newPerson));
-        setNotification(`Added ${newPerson.name}`);
+        setNotification({ message: `Added ${newPerson.name}`, type: 'success' });
         setTimeout(() => setNotification(null), 1500);
         setNewName('');
         setNewPhone('');
@@ -22,7 +22,7 @@ const PersonForm = ({ persons, setPersons, setNotification }) => {
       personsService.update(person.id, { ...person, number: newPhone })
         .then(updatedPerson => {
           setPersons(persons.map(p => p.id === person.id ? updatedPerson : p));
-          setNotification(`Updated ${updatedPerson.name}`);
+          setNotification({ message: `Updated ${updatedPerson.name}`, type: 'success' });
           setTimeout(() => setNotification(null), 1500);
           setNewName('');
           setNewPhone('');

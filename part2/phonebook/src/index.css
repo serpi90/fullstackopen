@@ -1,9 +1,12 @@
 .notification {
-    background-color: darkgreen;
     border-radius: 5px;
-    color: white;
     margin: 1em;
     padding: 1em;
     font-weight: bold;
     font-size: 1.25em;
+}
+
+.notification.success {
+    background-color: darkgreen;
+    color: white;
 }
