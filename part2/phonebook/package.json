@@ -25,6 +25,7 @@
       "react-app/jest"
     ],
     "rules": {
+      "no-shadow": "error",
       "semi": [
         "error",
         "always"
