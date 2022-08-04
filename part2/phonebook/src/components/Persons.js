@@ -13,7 +13,7 @@ const Persons = ({ setPersons, persons, search }) => {
     .filter(person => person.name.toLowerCase().includes(search.toLowerCase()))
     .map(person => (
       <p key={person.id}>
-        {person.name}
+        {person.name} <a href={`tel:${person.number.replaceAll(/[^0-9+]/g, '')}`}>{person.number}</a>&nbsp;
         <button onClick={() => remove(person)}>delete</button>
       </p>)
     );
