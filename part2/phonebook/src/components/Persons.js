@@ -1,11 +1,15 @@
 import personsService from '../services/persons';
 
-const Persons = ({ setPersons, persons, search }) => {
+const Persons = ({ setPersons, persons, search, setNotification }) => {
   const remove = person => {
     if (window.confirm(`Really delete ${person.name}?`)) {
       personsService
         .remove(person)
-        .then(() => setPersons(persons.filter(p => p.id !== person.id)));
+        .then(() => {
+          setPersons(persons.filter(p => p.id !== person.id));
+          setNotification({ message: `Removed ${person.name}`, type: 'success' });
+          setTimeout(() => setNotification(null), 1500);
+        });
     }
   };
 
