@@ -2,9 +2,11 @@ import personsService from '../services/persons';
 
 const Persons = ({ setPersons, persons, search }) => {
   const remove = (person) => {
-    personsService
-      .remove(person)
-      .then(() => setPersons(persons.filter(p => p.id !== person.id)));
+    if (window.confirm(`Really delete ${person.name}?`)) {
+      personsService
+        .remove(person)
+        .then(() => setPersons(persons.filter(p => p.id !== person.id)));
+    }
   };
 
   return persons
