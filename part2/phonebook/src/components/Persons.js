@@ -9,6 +9,11 @@ const Persons = ({ setPersons, persons, search, setNotification }) => {
           setPersons(persons.filter(p => p.id !== person.id));
           setNotification({ message: `Removed ${person.name}`, type: 'success' });
           setTimeout(() => setNotification(null), 1500);
+        })
+        .catch(error => {
+          setNotification({ message: `Information of '${person.name}' has already removed from server`, type: 'danger' });
+          setTimeout(() => setNotification(null), 3000);
+          setPersons(persons.filter(p => p.id !== person.id));
         });
     }
   };

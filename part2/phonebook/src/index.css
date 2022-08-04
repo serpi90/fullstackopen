@@ -10,3 +10,8 @@
     background-color: darkgreen;
     color: white;
 }
+
+.notification.danger {
+    background-color: darkred;
+    color: white;
+}

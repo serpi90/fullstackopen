@@ -26,6 +26,11 @@ const PersonForm = ({ persons, setPersons, setNotification }) => {
           setTimeout(() => setNotification(null), 1500);
           setNewName('');
           setNewPhone('');
+        })
+        .catch(error => {
+          setNotification({ message: `Information of '${person.name}' has already removed from server`, type: 'danger' });
+          setTimeout(() => setNotification(null), 3000);
+          setPersons(persons.filter(p => p.id !== person.id));
         });
     }
   };
