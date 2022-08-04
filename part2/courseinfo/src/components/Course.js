@@ -10,6 +10,6 @@ const Part = ({ part }) => <p> {part.name} {part.exercises} </p>;
 
 const Content = ({ parts }) => parts.map(part => <Part part={part} key={part.id} />);
 
-const Total = (props) => <p><strong>Total of {props.parts.reduce((sum, part) => sum + part.exercises, 0)} exercises</strong></p>;
+const Total = props => <p><strong>Total of {props.parts.reduce((sum, part) => sum + part.exercises, 0)} exercises</strong></p>;
 
 export default Course;

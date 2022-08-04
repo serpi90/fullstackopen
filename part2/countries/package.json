@@ -24,13 +24,18 @@
       "react-app/jest"
     ],
     "rules": {
-      "semi": [
+      "arrow-parens": [
         "error",
-        "always"
+        "as-needed"
       ],
       "comma-dangle": [
         "error",
         "always-multiline"
+      ],
+      "no-shadow": "error",
+      "semi": [
+        "error",
+        "always"
       ]
     }
   },

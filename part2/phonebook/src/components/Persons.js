@@ -1,7 +1,7 @@
 import personsService from '../services/persons';
 
 const Persons = ({ setPersons, persons, search }) => {
-  const remove = (person) => {
+  const remove = person => {
     if (window.confirm(`Really delete ${person.name}?`)) {
       personsService
         .remove(person)

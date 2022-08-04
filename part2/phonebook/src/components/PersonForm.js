@@ -5,7 +5,7 @@ const PersonForm = ({ persons, setPersons }) => {
   const [newName, setNewName] = useState('');
   const [newPhone, setNewPhone] = useState('');
 
-  const addPerson = (person) => {
+  const addPerson = person => {
     personsService
       .create(person)
       .then(newPerson => {
@@ -15,7 +15,7 @@ const PersonForm = ({ persons, setPersons }) => {
       });
   };
 
-  const updatePerson = (person) => {
+  const updatePerson = person => {
     if (window.confirm(`${person.name} is already added to phonebook, replace the old number with a new one?`)) {
       personsService.update(person.id, { ...person, number: newPhone })
         .then(updatedPerson => {
